@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Getting Started with React Simple Router Starter Kit
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project provides a fast environment to the routing code structure.
 
-## Available Scripts
+# Paging
 
-In the project directory, you can run:
+This project constitutes the simplest infrastructure of routing. What we will do?
 
-### `yarn start`
+When we create a new page in a "pages" folder. You should add to main.js your route like this:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```javascript
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import Dashboard from "../pages/dashboard";
+import Home from "../pages/index";
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+import Login from "../pages/login"; //New!
 
-### `yarn test`
+const Main = () => {
+    return (
+        <Switch>
+            <Route exact path="/" component={Home}></Route>
+            <Route exact path="/dashboard" component={Dashboard}></Route>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+            <Route exact path="/login" component={Login}></Route> //New!
 
-### `yarn build`
+        </Switch>
+    );
+};
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+export default Main;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Main.js file run in to the App.js file.
 
-### `yarn eject`
+```javascript
+import React from 'react'
+import Main from "./components/main";
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+function App() {
+  return (
+    <div className="App">
+      <Main />
+    </div >
+  );
+}
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export default App;
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+All we need to add to route name that you want, and connect the component.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
 
-## Learn More
+## Installation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To get you started fork and clone the `react-router-starter-kit` repository and install the dependencies using Yarn or the npm client.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+❯ cd react-router-starter-kit/
+❯ yarn
+```
 
-### Code Splitting
+## Quick start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Yarn
 
-### Analyzing the Bundle Size
+```bash 
+❯ yarn start
+✔ Development server running on: http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### npm
+````bash
+❯ npm start
+✔ Development server running on: http://localhost:3000
+````
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![gifd241cdbce062558f.gif](https://s2.gifyu.com/images/gifd241cdbce062558f.gif)](https://gifyu.com/image/Uwzl)
